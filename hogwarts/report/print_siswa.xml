@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_siswa_pdf">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+            <!-- <t t-call="web.external_layout"/> -->
+                <div class="page">
+                    <h2><b>DATA SISWA</b></h2>
+                    <t t-foreach="docs" t-as="d">
+                        <div class="row">
+                            <div class="col-4">Nama Siswa :</div>
+                            <div class="col-8"><span t-field="d.name"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">NISN :</div>
+                            <div class="col-8"><span t-field="d.no_induk"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">Jenis Kelamin :</div>
+                            <div class="col-8"><span t-field="d.jenis_kelamin"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">Tanggal Lahir :</div>
+                            <div class="col-8"><span t-field="d.tgl_lahir"/></div>
+                        </div>
+                        <div class="row">
+                                <div class="col-4">Jurusan :</div>
+                                <div class="col-8"><span t-field="d.jurusan_id"/></div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

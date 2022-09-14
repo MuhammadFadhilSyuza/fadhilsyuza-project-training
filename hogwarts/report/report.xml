@@ -1,0 +1,24 @@
+<odoo>
+
+    <!-- Report Siswa -->
+    <record id="report_siswa_xlsx" model="ir.actions.report">
+        <field name="name">Siswa Excel</field>
+        <field name="model">hogwarts.siswa</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">hogwarts.report_siswa_xlsx</field>
+        <field name="report_file">hogwarts.report_siswa_xlsx</field>
+        <field name="binding_model_id" ref="model_hogwarts_siswa"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_siswa_pdf" model="ir.actions.report">
+        <field name="name">Print Daftar Siswa</field>
+        <field name="model">hogwarts.siswa</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hogwarts.report_siswa_pdf</field>
+        <field name="report_file">hogwarts.report_siswa_pdf</field>
+        <field name="binding_model_id" ref="model_hogwarts_siswa"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

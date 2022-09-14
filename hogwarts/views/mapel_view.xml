@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- hogwarts.mapel tree view -->
+    <record id="hogwarts_mapel_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Mata Pelajaran</field>
+        <field name="model">hogwarts.mapel</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="kode_mapel"/>
+                <field name="kelompokmapel_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- hogwarts.mapel form view -->
+    <record id="hogwarts_mapel_view_form" model="ir.ui.view">
+        <field name="name">Form Mata Pelajaran</field>
+        <field name="model">hogwarts.mapel</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="kode_mapel"/>
+                    </group>
+                    <group name="kelompokmapel" string="Kelompok Mata Pelajaran">
+                        <field name="kelompokmapel_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- hogwarts.mapel action window -->
+    <record id="hogwarts_mapel_action" model="ir.actions.act_window">
+        <field name="name">Mata Pelajaran</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hogwarts.mapel</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="hogwarts_mapel_menu_act" 
+              name="Daftar Mata Pelajaran" 
+              parent="hogwarts_mapel_menu_categ" 
+              action="hogwarts_mapel_action" 
+              sequence="20"/>
+
+</odoo>

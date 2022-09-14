@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- hogwarts.guru tree view -->
+    <record id="hogwarts_guru_view_tree" model="ir.ui.view">
+        <field name="name">List Guru</field>
+        <field name="model">hogwarts.guru</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="id_guru"/>
+                <field name="ajar"/>
+                <field name="tgl_lahir"/>
+                <field name="jenis_kelamin"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- hogwarts.guru form view -->
+    <record id="hogwarts_guru_view_form" model="ir.ui.view">
+        <field name="name">Form Guru</field>
+        <field name="model">hogwarts.guru</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar" />
+                    <h1>
+                        <field name="name" 
+                               default_focus="1" 
+                               placeholder="Nama Lengkap Guru"/>
+                    </h1>
+                    <h3>
+                        <field name="ajar"  
+                               placeholder="Pilih Mata Pelajaran"/>
+                    </h3>
+                    <group name="dataguru" string="Data Guru" col="4">
+                        <field name="id_guru"/>
+                        <field name="jenis_kelamin"/>
+                        <field name="tgl_lahir"/>
+                        <field name="agama"/>
+                        <field name="alamat"/>
+                        <field name="gol_darah"/>
+                    </group>
+                    <group name="siswa" string="Nama Siswa">
+                        <field name="siswa_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- hogwarts.guru action window -->
+    <record id="hogwarts_guru_action" model="ir.actions.act_window">
+        <field name="name">List Guru</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hogwarts.guru</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="hogwarts_guru_menu_act" 
+              name="Daftar Guru" 
+              parent="hogwarts_guru_menu_categ" 
+              action="hogwarts_guru_action" 
+              sequence="20"/>
+
+</odoo>

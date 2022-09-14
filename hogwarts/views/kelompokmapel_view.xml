@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- hogwarts.kelompokmapel tree view -->
+    <record id="hogwarts.kelompokmapel_view_tree" model="ir.ui.view">
+        <field name="name">hogwarts.kelompokmapel.view.tree</field>
+        <field name="model">hogwarts.kelompokmapel</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="kode_mapel"/>
+                <field name="jml_item"/>
+                <field name="daftar"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- hogwarts.kelompokmapel form view -->
+    <record id="hogwarts_kelompokmapel_view_form" model="ir.ui.view">
+        <field name="name">hogwarts.kelompokmapel.view.form</field>
+        <field name="model">hogwarts.kelompokmapel</field>
+        <field name="arch" type="xml">
+            <form string="Kelompok Mata Pelajaran">
+                <sheet>
+                    <group name="kelompok" string="Kelompok">
+                        <field name="name"/>
+                        <field name="kode_mapel"/>
+                    </group>
+                    <group name="list" string="Mata Pelajaran">
+                        <field name="mapel_ids"/>
+                    </group>
+                    <group name="list" string="Nama Jurusan">
+                        <field name="jurusan_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- hogwarts.kelompokmapel action window -->
+    <record id="hogwarts_kelompokmapel_action" model="ir.actions.act_window">
+        <field name="name">Kelompok Mata Pelajaran</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hogwarts.kelompokmapel</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="hogwarts_kelompokmapel_menu_act" 
+              name="Kelompok Mata Pelajaran" 
+              parent="hogwarts_mapel_menu_categ" 
+              action="hogwarts_kelompokmapel_action" 
+              sequence="10"/>
+
+</odoo>

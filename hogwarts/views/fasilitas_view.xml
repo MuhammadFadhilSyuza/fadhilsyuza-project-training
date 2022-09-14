@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- hogwarts.fasilitas tree view -->
+    <record id="hogwarts_fasilitas_view_tree" model="ir.ui.view">
+        <field name="name">List Fasilitas</field>
+        <field name="model">hogwarts.fasilitas</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="kode_fasilitas"/>
+                <field name="letak_fasilitas"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- hogwarts.fasilitas form view -->
+    <record id="hogwarts_fasilitas_view_form" model="ir.ui.view">
+        <field name="name">Data Fasilitas</field>
+        <field name="model">hogwarts.fasilitas</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="action_book" string="Booked" type="object" class="btn btn-primary" states="draft" confirm="Apakah Anda Yakin Untuk Menyewa Ruangan Ini?"/>
+                    <button name="action_done" string="Done" type="object" class="btn btn-primary" states="book" />
+                    <button name="action_cancelled" string="Cancelled" type="object" class="btn btn-warning" states="book" />
+                    <button name="action_draft" string="Back To Draft" type="object" class="btn btn-danger" states="cancelled"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,book,done"/>
+                </header>
+                <sheet>
+                    <group name="data" string="Data Fasilitas">
+                        <field name="name" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                        <field name="kode_fasilitas" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                    </group>
+                    <group name="letak" string="Letak Fasilitas">
+                        <field name="letak_fasilitas" attrs="{'readonly' : [('state', '!=', 'draft')]}"/>
+                    </group>
+                    <group name="pengguna" string="Pengguna">
+                        <field name="siswa_id" attrs="{'readonly' : [('state', '!=', 'draft')]}" />
+                        <field name="guru_id" attrs="{'readonly' : [('state', '!=', 'draft')]}" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- hogwarts.fasilitas action window -->
+    <record id="hogwarts_fasilitas_action" model="ir.actions.act_window">
+        <field name="name">List Fasilitas</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hogwarts.fasilitas</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="hogwarts_fasilitas_menu_act" 
+              name="Nama Ruangan" 
+              parent="hogwarts_fasilitas_menu_categ" 
+              action="hogwarts_fasilitas_action" 
+              sequence="20"/>
+
+</odoo>

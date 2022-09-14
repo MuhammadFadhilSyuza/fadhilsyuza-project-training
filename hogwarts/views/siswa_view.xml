@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- hogwarts.siswa search view -->
+    <record id="hogwarts_siswa_search" model="ir.ui.view">
+        <field name="name">hogwarts.siswa.search.view</field>
+        <field name="model">hogwarts.siswa</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Nama Siswa" filter_domain="[('name', 'ilike', self)]"/>
+                <field name="no_induk" string="NISN Siswa" filter_domain="[('no_induk', 'ilike', self)]"/>
+                <separator />
+                <filter name="jurusan_id" string="IPA" domain="[('jurusan_id','=','IPA')]"/>
+                <filter name="jurusan_id" string="IPS" domain="[('jurusan_id','=','IPS')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- hogwarts.siswa tree view -->
+    <record id="hogwarts_siswa_view_tree" model="ir.ui.view">
+        <field name="name">List Siswa</field>
+        <field name="model">hogwarts.siswa</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="no_induk"/>
+                <field name="jurusan_id"/>
+                <field name="jenis_kelamin"/>
+                <field name="tgl_lahir"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- hogwarts.siswa form view -->
+    <record id="hogwarts_siswa_view_form" model="ir.ui.view">
+        <field name="name">Form Pendaftaran Siswa</field>
+        <field name="model">hogwarts.siswa</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <h1>
+                            <field name="name" 
+                                   default_focus="1" 
+                                   placeholder="Nama Lengkap Siswa"/>
+                        </h1>
+                        <field name="jurusan_id"
+                               placeholder="Pilih Jurusan"/>
+                    <group name="datasiswa" string="Data Siswa" col="4">
+                        <field name="no_induk"/>
+                        <field name="jenis_kelamin"/>
+                        <field name="tgl_lahir"/>
+                        <field name="agama"/>
+                        <field name="alamat"/>
+                        <field name="gol_darah"/>
+                    </group>
+                    <group name="dataortu" string="Data Orangtua" col="4">
+                        <field name="nama_ayah"/>
+                        <field name="nama_ibu"/>
+                        <field name="pekerjaan_ayah"/>
+                        <field name="pekerjaan_ibu"/>
+                    </group>
+                    <group name="guru" string="Nama Guru">
+                        <field name="guru_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- hogwarts.siswa action window -->
+    <record id="hogwarts_siswa_action" model="ir.actions.act_window">
+        <field name="name">Daftar Siswa</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hogwarts.siswa</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">
+            {
+                'search_default_name': 0 
+            }
+        </field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="hogwarts_siswa_menu_act" 
+              name="Daftar Siswa" 
+              parent="hogwarts_siswa_menu_categ" 
+              action="hogwarts_siswa_action" 
+              sequence="20"/>
+
+</odoo>

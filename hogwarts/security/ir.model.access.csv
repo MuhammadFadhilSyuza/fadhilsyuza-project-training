@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hogwarts_kelompokmapel,access.hogwarts.kelompokmapel,model_hogwarts_kelompokmapel,,1,1,1,1
+access_hogwarts_mapel,access.hogwarts.mapel,model_hogwarts_mapel,,1,1,1,1
+access_hogwarts_siswa,access.hogwarts.siswa,model_hogwarts_siswa,,1,1,1,1
+access_hogwarts_guru,access.hogwarts.guru,model_hogwarts_guru,,1,1,1,1
+access_hogwarts_jurusan,access.hogwarts.jurusan,model_hogwarts_jurusan,,1,1,1,1
+access_hogwarts_fasilitas,access.hogwarts.fasilitas,model_hogwarts_fasilitas,,1,1,1,1
+access_hogwarts_tambahpenyewa,access.hogwarts.tambahpenyewa,model_hogwarts_tambahpenyewa,,1,1,1,1

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="hogwarts_menu_root" 
+              name="Hogwarts School" 
+              sequence="10"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="hogwarts_mapel_menu_categ" 
+              name="Mata Pelajaran" 
+              parent="hogwarts_menu_root" 
+              sequence="10"/>
+    
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="hogwarts_siswa_menu_categ" 
+              name="Siswa" 
+              parent="hogwarts_menu_root" 
+              sequence="30"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="hogwarts_guru_menu_categ" 
+              name="Guru" 
+              parent="hogwarts_menu_root" 
+              sequence="35"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="hogwarts_fasilitas_menu_categ" 
+              name="Fasilitas" 
+              parent="hogwarts_menu_root" 
+              sequence="40"/>   
+</odoo>
